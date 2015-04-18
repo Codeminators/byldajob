@@ -1,5 +1,7 @@
 package in.policyhack.byldajob;
 
+import java.util.ArrayList;
+
 /**
  * Created by raghav on 18/04/15.
  */
@@ -22,6 +24,8 @@ public class Employee {
     int marks;
     int retention;
     int lastEmployedAt;
+
+    static ArrayList<Employee> chosenEmployee = new ArrayList<>();
 
     public int rateEmployee(Employee employee){
         int rating = 0;
