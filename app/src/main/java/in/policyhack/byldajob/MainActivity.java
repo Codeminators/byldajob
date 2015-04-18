@@ -1,15 +1,15 @@
 package in.policyhack.byldajob;
 
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.os.Build;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -18,6 +18,7 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.container, new PlaceholderFragment())
@@ -60,6 +61,18 @@ public class MainActivity extends ActionBarActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+            TextView category = (TextView) rootView.findViewById(R.id.category);
+            ImageView hospitality = (ImageView) rootView.findViewById(R.id.hospitality);
+            ImageView security = (ImageView) rootView.findViewById(R.id.security);
+            ImageView fabrication = (ImageView) rootView.findViewById(R.id.fabrication);
+            ImageView garmentMaking = (ImageView) rootView.findViewById(R.id.garment);
+            ImageView banking = (ImageView) rootView.findViewById(R.id.banking);
+            ImageView informationTechnology = (ImageView) rootView.findViewById(R.id.information_technology);
+            ImageView retail = (ImageView) rootView.findViewById(R.id.retail);
+            ImageView electrical = (ImageView) rootView.findViewById(R.id.electrical);
+            ImageView automotiveRepair = (ImageView) rootView.findViewById(R.id.automotive_repair);
+
+
             return rootView;
         }
     }

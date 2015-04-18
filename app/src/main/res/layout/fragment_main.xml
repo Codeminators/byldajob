@@ -6,7 +6,121 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".MainActivity$PlaceholderFragment">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Select A Category :"
+        android:id="@+id/select_a_category"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/category"
+
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@+id/select_a_category"
+        android:layout_toEndOf="@+id/select_a_category" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/hospitality"
+
+        android:background="@drawable/health"
+        android:layout_below="@+id/select_a_category"
+        android:layout_toLeftOf="@+id/automotive_repair"
+        android:layout_marginTop="50dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/automotive_repair"
+        android:background="@drawable/repair"
+        android:layout_marginLeft="20dp"
+        android:layout_alignTop="@+id/hospitality"
+
+        android:layout_centerInParent="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/security"
+        android:background="@drawable/security"
+        android:layout_marginLeft="20dp"
+        android:layout_alignTop="@+id/automotive_repair"
+        android:layout_toRightOf="@+id/automotive_repair"
+        android:layout_toEndOf="@+id/automotive_repair" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/retail"
+        android:background="@drawable/retail"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/security"
+
+        android:layout_alignLeft="@+id/hospitality"
+         />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/information_technology"
+        android:background="@drawable/it"
+        android:layout_marginLeft="20dp"
+        android:layout_alignBottom="@+id/retail"
+        android:layout_toRightOf="@+id/retail"
+        android:layout_toEndOf="@+id/retail" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/banking"
+        android:background="@drawable/bank"
+        android:layout_marginLeft="20dp"
+        android:layout_alignTop="@+id/information_technology"
+        android:layout_toRightOf="@+id/information_technology"
+        android:layout_toEndOf="@+id/information_technology" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/electrical"
+        android:background="@drawable/electrical"
+        android:layout_marginTop="20dp"
+        android:layout_alignLeft="@+id/retail"
+        android:layout_below="@+id/retail"
+         />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/fabrication"
+        android:background="@drawable/fabrication"
+        android:layout_marginLeft="20dp"
+        android:layout_alignTop="@+id/electrical"
+        android:layout_toRightOf="@+id/electrical"
+        android:layout_toEndOf="@+id/electrical" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/garment"
+        android:background="@drawable/garment"
+        android:layout_marginLeft="20dp"
+        android:layout_alignTop="@+id/fabrication"
+        android:layout_toRightOf="@+id/fabrication"
+        android:layout_toEndOf="@+id/fabrication" />
+
+
+
+
+
 
 </RelativeLayout>
