@@ -21,7 +21,7 @@ public class MainActivity extends ActionBarActivity {
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
+                    .add(R.id.container, new CategoryFragment())
                     .commit();
         }
     }
@@ -61,6 +61,7 @@ public class MainActivity extends ActionBarActivity {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+
             TextView category = (TextView) rootView.findViewById(R.id.category);
             ImageView hospitality = (ImageView) rootView.findViewById(R.id.hospitality);
             ImageView security = (ImageView) rootView.findViewById(R.id.security);

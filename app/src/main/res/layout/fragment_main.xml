@@ -27,7 +27,7 @@
         android:layout_toRightOf="@+id/select_a_category"
         android:layout_toEndOf="@+id/select_a_category" />
 
-    <ImageView
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/hospitality"
@@ -37,7 +37,7 @@
         android:layout_toLeftOf="@+id/automotive_repair"
         android:layout_marginTop="50dp" />
 
-    <ImageView
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/automotive_repair"
@@ -47,7 +47,7 @@
 
         android:layout_centerInParent="true" />
 
-    <ImageView
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/security"
@@ -57,7 +57,7 @@
         android:layout_toRightOf="@+id/automotive_repair"
         android:layout_toEndOf="@+id/automotive_repair" />
 
-    <ImageView
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/retail"
@@ -68,7 +68,7 @@
         android:layout_alignLeft="@+id/hospitality"
          />
 
-    <ImageView
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/information_technology"
@@ -78,7 +78,7 @@
         android:layout_toRightOf="@+id/retail"
         android:layout_toEndOf="@+id/retail" />
 
-    <ImageView
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/banking"
@@ -88,7 +88,7 @@
         android:layout_toRightOf="@+id/information_technology"
         android:layout_toEndOf="@+id/information_technology" />
 
-    <ImageView
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/electrical"
@@ -98,7 +98,7 @@
         android:layout_below="@+id/retail"
          />
 
-    <ImageView
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/fabrication"
@@ -108,7 +108,7 @@
         android:layout_toRightOf="@+id/electrical"
         android:layout_toEndOf="@+id/electrical" />
 
-    <ImageView
+    <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/garment"
