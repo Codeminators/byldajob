@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ByldaJob.iml" filepath="$PROJECT_DIR$/ByldaJob.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/byldajob.iml" filepath="$PROJECT_DIR$/byldajob.iml" />
     </modules>
   </component>
 </project>
