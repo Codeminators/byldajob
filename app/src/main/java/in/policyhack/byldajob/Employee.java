@@ -27,7 +27,7 @@ public class Employee {
 
     static ArrayList<Employee> chosenEmployee = new ArrayList<>();
 
-    public int rateEmployee(Employee employee){
+    public static int rateEmployee(Employee employee){
         int rating = 0;
         int workexrating = 2*employee.workEx/4;
         int marksRating = 1*employee.marks/100;

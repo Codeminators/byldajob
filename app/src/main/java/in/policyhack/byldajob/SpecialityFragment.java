@@ -1,7 +1,9 @@
 package in.policyhack.byldajob;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -103,11 +105,16 @@ public class SpecialityFragment extends android.support.v4.app.Fragment {
         listView = (ListView) rootView.findViewById(R.id.listView);
         final CheckBox relocate = (CheckBox) rootView.findViewById(R.id.checkbox);
         final EditText editText = (EditText) rootView.findViewById(R.id.proposed_salary);
+        final EditText location = (EditText) rootView.findViewById(R.id.location);
         listAdapter = new ArrayAdapter<>(getActivity(), R.layout.row_listview, specialities);
         listView.setAdapter(listAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putString("location",location.getText().toString());
+                editor.apply();
                 Intent intent = new Intent();
                 intent.putExtra("relocate", relocate.isChecked());
                 intent.putExtra("proposed_salary",editText.getText().toString());

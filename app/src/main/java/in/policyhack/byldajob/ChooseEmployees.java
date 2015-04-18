@@ -1,6 +1,7 @@
 package in.policyhack.byldajob;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
@@ -29,6 +30,17 @@ public class ChooseEmployees extends ActionBarActivity {
         setContentView(R.layout.activity_choose_employees);
         flingContainer = (SwipeFlingAdapterView) findViewById(R.id.frame);
 
+        Intent intent = getIntent();
+        intent.getBooleanExtra("relocate", false);
+        String salary = intent.getStringExtra("proposed_salary");
+        String specalization = intent.getStringExtra("specialization");
+
+        new QueryTask(){
+            @Override
+            protected void onPostExecute(String s) {
+
+            }
+        }.execute("SELECT * FROM tbl WHERE Courseoftraining = \""+specalization+"\" AND Previousmonthlysalarydrawn >= '"+ salary +"'");
 
         al = new ArrayList<>();
         al.add("php");
