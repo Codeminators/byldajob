@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import java.util.ArrayList;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -44,9 +46,55 @@ public class SpecialityFragment extends android.support.v4.app.Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
         }
+        String category = "";
+        ArrayList<String> specialities = new ArrayList<>();
+        if(category.equals("Hospitality")){
+            specialities.add("HOS101-Hospitality Assistant");
+            specialities.add("HOS610-Front office cum receptionist Technology");
+            specialities.add("HOS276 - Food and beverage service");
+            specialities.add("HOS704-Housekeeper");
+        }
+        else if (category.equals("Security")) {
+            specialities.add("SEC205-Security Guard(General) & Personal Security Guard");
+        }
+        else if (category.equals("Retail")) {
+            specialities.add("RET104-Sales Person (Door to Door)");
+            specialities.add("RET101-Sales Person ( Retail)");
+            specialities.add("RAS/Q0102-Cashier");
+            specialities.add("RAS/Q0104-Sales Associate");
+        }
+        else if (category.equals("Fabrication")) {
+            specialities.add("FAB108-Basic Fitting Work");
+            specialities.add("FAB706-Welder (Repair & Maintenance)");
+        }
+        else if (category.equals("Automotive Repair")) {
+            specialities.add("AUR101-Basic Automotive Servicing (4 Wheelers)");
+            specialities.add("AUR703-Driver cum Mechanic");
+        }
+        else if (category.equals("Bank & Accounting")) {
+            specialities.add("BAN101-Accounting");
+            specialities.add("BAN104-Mutual Fund Associate");
+        }
+        else if (category.equals("Electrical")) {
+            specialities.add("ELE701-Electrician Domestic");
+            specialities.add("ELE101-Basic Electrical Training");
+        }
+        else if (category.equals("Garment Making")) {
+            specialities.add("GAR 516-Tailor (Basic Sewing Operator)");
+            specialities.add("GAR515-Industrial Sewing Machine Operator");
+        }
+        else if (category.equals("Information And Communication Technology")) {
+            specialities.add("ICT113-BPO Non Voice business training");
+            specialities.add("ICT703-Computer Hardware Assistant");
+            specialities.add("ICT701-Accounts Assistant using Tally");
+            specialities.add("ICT101-Computer Fundamentals, MS-Office & Internet");
+        }
+
+
     }
 
     @Override
