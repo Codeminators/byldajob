@@ -84,7 +84,7 @@ public class CategoryFragment extends android.support.v4.app.Fragment {
             public void onClick(View v) {
                 categoryName = "Hospitality";
                 final android.support.v4.app.FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.container, new SpecialityFragment());
+                ft.replace(R.id.container, SpecialityFragment.newInstance(categoryName));
                 ft.commit();
             }
         });
@@ -94,7 +94,7 @@ public class CategoryFragment extends android.support.v4.app.Fragment {
             public void onClick(View v) {
                 categoryName = "Security";
                 final android.support.v4.app.FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.container, new SpecialityFragment());
+                ft.replace(R.id.container, SpecialityFragment.newInstance(categoryName));
                 ft.commit();
             }
         });
@@ -104,7 +104,7 @@ public class CategoryFragment extends android.support.v4.app.Fragment {
             public void onClick(View v) {
                 categoryName = "Fabrication";
                 final android.support.v4.app.FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.container, new SpecialityFragment());
+                ft.replace(R.id.container, SpecialityFragment.newInstance(categoryName));
                 ft.commit();
             }
         });
@@ -114,7 +114,7 @@ public class CategoryFragment extends android.support.v4.app.Fragment {
             public void onClick(View v) {
                 categoryName = "Garment Making";
                 final android.support.v4.app.FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.container, new SpecialityFragment());
+                ft.replace(R.id.container, SpecialityFragment.newInstance(categoryName));
                 ft.commit();
             }
         });
@@ -124,7 +124,7 @@ public class CategoryFragment extends android.support.v4.app.Fragment {
             public void onClick(View v) {
                 categoryName = "Electrical";
                 final android.support.v4.app.FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.container, new SpecialityFragment());
+                ft.replace(R.id.container, SpecialityFragment.newInstance(categoryName));
                 ft.commit();
             }
         });
@@ -134,7 +134,7 @@ public class CategoryFragment extends android.support.v4.app.Fragment {
             public void onClick(View v) {
                 categoryName = "Automotive Repair";
                 final android.support.v4.app.FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.container, new SpecialityFragment());
+                ft.replace(R.id.container, SpecialityFragment.newInstance(categoryName));
                 ft.commit();
             }
         });
@@ -144,7 +144,7 @@ public class CategoryFragment extends android.support.v4.app.Fragment {
             public void onClick(View v) {
                 categoryName = "Banking & Accounting";
                 final android.support.v4.app.FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.container, new SpecialityFragment());
+                ft.replace(R.id.container, SpecialityFragment.newInstance(categoryName));
                 ft.commit();
             }
         });
@@ -154,7 +154,7 @@ public class CategoryFragment extends android.support.v4.app.Fragment {
             public void onClick(View v) {
                 categoryName = "Information and Communication Technology";
                 final android.support.v4.app.FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.container, new SpecialityFragment());
+                ft.replace(R.id.container, SpecialityFragment.newInstance(categoryName));
                 ft.commit();
             }
         });
@@ -164,7 +164,7 @@ public class CategoryFragment extends android.support.v4.app.Fragment {
             public void onClick(View v) {
                 categoryName = "Retail";
                 final android.support.v4.app.FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.container, new SpecialityFragment());
+                ft.replace(R.id.container, SpecialityFragment.newInstance(categoryName));
                 ft.commit();
             }
         });
