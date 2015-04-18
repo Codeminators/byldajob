@@ -1,11 +1,15 @@
 package in.policyhack.byldajob;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -97,8 +101,20 @@ public class SpecialityFragment extends android.support.v4.app.Fragment {
         View rootView = inflater.inflate(R.layout.fragment_speciality, container, false);
 
         listView = (ListView) rootView.findViewById(R.id.listView);
+        final CheckBox relocate = (CheckBox) rootView.findViewById(R.id.checkbox);
+        final EditText editText = (EditText) rootView.findViewById(R.id.proposed_salary);
         listAdapter = new ArrayAdapter<>(getActivity(), R.layout.row_listview, specialities);
         listView.setAdapter(listAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent();
+                intent.putExtra("relocate", relocate.isChecked());
+                intent.putExtra("proposed_salary",editText.getText().toString());
+                intent.putExtra("specialization",specialities.get(i));
+                startActivity(intent);
+            }
+        });
         return rootView;
     }
 

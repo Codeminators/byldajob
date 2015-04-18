@@ -11,12 +11,14 @@
         android:orientation="vertical">
 
         <EditText
+            android:id="@+id/proposed_salary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="Enter proposed salary"
             />
 
         <CheckBox
+            android:id="@+id/checkbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="Will you be willing to pay for relocation?"/>
