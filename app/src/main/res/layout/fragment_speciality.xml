@@ -4,10 +4,22 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Enter proposed salary"
+            />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Will you be willing to pay for relocation?"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -27,5 +39,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
-    </RelativeLayout>
+
+
+    </LinearLayout>
 </FrameLayout>

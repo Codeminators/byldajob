@@ -1,25 +1,15 @@
 package in.policyhack.byldajob;
 
-import android.app.Activity;
-import android.net.Uri;
 import android.os.Bundle;
-import android.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
-
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link SpecialityFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link SpecialityFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class SpecialityFragment extends android.support.v4.app.Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -28,7 +18,9 @@ public class SpecialityFragment extends android.support.v4.app.Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
 
-    private OnFragmentInteractionListener mListener;
+    private ArrayList<String> specialities;
+    private ListView listView;
+    private ArrayAdapter<String> listAdapter;
 
     // TODO: Rename and change types and number of parameters
     public static SpecialityFragment newInstance(String param1) {
@@ -49,9 +41,10 @@ public class SpecialityFragment extends android.support.v4.app.Fragment {
 
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
+            Log.d("sdfd",mParam1);
         }
-        String category = "";
-        ArrayList<String> specialities = new ArrayList<>();
+        String category = mParam1.trim();
+        specialities = new ArrayList<>();
         if(category.equals("Hospitality")){
             specialities.add("HOS101-Hospitality Assistant");
             specialities.add("HOS610-Front office cum receptionist Technology");
@@ -94,60 +87,19 @@ public class SpecialityFragment extends android.support.v4.app.Fragment {
             specialities.add("ICT101-Computer Fundamentals, MS-Office & Internet");
         }
 
-
+        Log.d("jdsg","" +specialities);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_speciality, container, false);
 
-        ListView listView = (ListView) rootView.findViewById(R.id.listView);
-
-
-
-
+        listView = (ListView) rootView.findViewById(R.id.listView);
+        listAdapter = new ArrayAdapter<>(getActivity(), R.layout.row_listview, specialities);
+        listView.setAdapter(listAdapter);
         return rootView;
-    }
-
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
-
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        try {
-            mListener = (OnFragmentInteractionListener) activity;
-        } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p/>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        public void onFragmentInteraction(Uri uri);
     }
 
 }
