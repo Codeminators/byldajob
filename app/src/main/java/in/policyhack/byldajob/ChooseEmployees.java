@@ -73,8 +73,8 @@ public class ChooseEmployees extends ActionBarActivity {
                         employee.setState(jsonObject.getString("State"));
                         employee.setDistrict(jsonObject.getString("District"));
                         employee.setPoliceVerification(jsonObject.getString("PoliceVerification"));
-                        employee.setAdhaarNumber(jsonObject.getLong("AadhaarNumber"));
-                        employee.setMobileNumber(jsonObject.getLong("mobile"));
+                        employee.setAdhaarNumber(jsonObject.getString("AadhaarNumber"));
+                        employee.setMobileNumber(jsonObject.getString("mobile"));
                         employee.setHighestEducation(jsonObject.getString("HighestEducation"));
                         employee.setSector(jsonObject.getString("Sectoroftraining"));
                         employee.setSpeciality(jsonObject.getString("Courseoftraining"));
@@ -86,6 +86,23 @@ public class ChooseEmployees extends ActionBarActivity {
                         employeeList.add(i,employee);
 
                     }
+
+                    Employee employee = new Employee();
+                    employee.setName("Raghav");
+                    employee.setState("Delhi");
+                    employee.setDistrict("Rohini");
+                    employee.setPoliceVerification("Yes");
+                    employee.setAdhaarNumber("123123123123");
+                    employee.setMobileNumber("9999997674");
+                    employee.setHighestEducation("BTech");
+                    employee.setSector("IT");
+                    employee.setSpeciality("Android");
+                    employee.setMarks(99);
+                    employee.setRetention(3);
+                    employee.setLastEmployedAt(4);
+                    employee.setWorkEx(2);
+                    employee.setPreviousSalary(10000);
+
                     arrayAdapter = new Adapter(getApplication(), employeeList);
                     flingContainer.setAdapter(arrayAdapter);
                     Log.d("Raghav", "" + employeeList.size() +""+arrayAdapter.getCount());
