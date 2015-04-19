@@ -11,6 +11,10 @@ import android.widget.Toast;
 
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 
@@ -38,7 +42,31 @@ public class ChooseEmployees extends ActionBarActivity {
         new QueryTask(){
             @Override
             protected void onPostExecute(String s) {
-
+                try {
+                    JSONArray jsonArray = new JSONArray(s);
+                    ArrayList<Employee> employeeList = new ArrayList<Employee>();
+                    for(int i=0;i<jsonArray.length();i++){
+                        JSONObject jsonObject = (JSONObject) jsonArray.get(i);
+                        Employee employee = new Employee();
+                        employee.setName(jsonObject.getString(""));
+                        employee.setState(jsonObject.getString(""));
+                        employee.setDistrict(jsonObject.getString(""));
+                        employee.setPoliceVerification(jsonObject.getString(""));
+                        employee.setAdhaarNumber(jsonObject.getString(""));
+                        employee.setMobileNumber(jsonObject.getString(""););
+                        employee.setHighestEducation(jsonObject.getString(""););
+                        employee.setSector(jsonObject.getString(""););
+                        employee.setSpeciality(jsonObject.getString(""););
+                        employee.setMarks(jsonObject.getString(""););
+                        employee.setRetention(jsonObject.getString(""););
+                        employee.setLastEmployedAt(jsonObject.getString(""););
+                        employee.setWorkEx(jsonObject.getString(""););
+                        employee.setPreviousSalary(jsonObject.getString(""););
+                        employeeList.add(i,employee);
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         }.execute("SELECT * FROM tbl WHERE Courseoftraining = \""+specalization+"\" AND Previousmonthlysalarydrawn >= '"+ salary +"'");
 
