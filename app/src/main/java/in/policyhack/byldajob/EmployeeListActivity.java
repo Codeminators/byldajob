@@ -26,15 +26,15 @@ public class EmployeeListActivity extends Activity{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
        setContentView(R.layout.fragment_employee_list);
-        for(int i = 0; i < 3; i++){
-            Employee employee = new Employee();
-            employee.name = "Name";
-            employee.state = "State";
-            employee.district = "District";
-            employee.adhaarNumber = 12;
-            employee.mobileNumber = 10;
-            Employee.chosenEmployee.add(employee);
-        }
+//        for(int i = 0; i < 3; i++){
+//            Employee employee = new Employee();
+//            employee.name = "Name";
+//            employee.state = "State";
+//            employee.district = "District";
+//            employee.adhaarNumber = 12;
+//            employee.mobileNumber = 10;
+//            Employee.chosenEmployee.add(employee);
+//        }
         listView = (ListView) findViewById(R.id.listView);
         sendSms = (Button) findViewById(R.id.smsButton);
         adapter = new Adapter(getApplicationContext());

@@ -73,8 +73,8 @@ public class ChooseEmployees extends ActionBarActivity {
                         employee.setState(jsonObject.getString("State"));
                         employee.setDistrict(jsonObject.getString("District"));
                         employee.setPoliceVerification(jsonObject.getString("PoliceVerification"));
-                        employee.setAdhaarNumber(jsonObject.getLong("AadhaarNumber"));
-                        employee.setMobileNumber(jsonObject.getLong("mobile"));
+                        employee.setAdhaarNumber(jsonObject.getString("AadhaarNumber"));
+                        employee.setMobileNumber(jsonObject.getString("mobile"));
                         employee.setHighestEducation(jsonObject.getString("HighestEducation"));
                         employee.setSector(jsonObject.getString("Sectoroftraining"));
                         employee.setSpeciality(jsonObject.getString("Courseoftraining"));

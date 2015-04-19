@@ -15,6 +15,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="Enter proposed salary"
+            android:imeOptions="actionNext"
+            android:digits="0123456789"
+            android:inputType="phone"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
             />
 
         <EditText
@@ -22,12 +27,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="Enter location"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:imeOptions="actionDone"
             />
 
         <CheckBox
             android:id="@+id/checkbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
             android:hint="Will you be willing to pay for relocation?"/>
 
         <TextView
@@ -35,6 +45,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Select a Speciality:"
+            android:layout_marginTop="20dp"
             android:id="@+id/speciality"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
@@ -47,7 +58,6 @@
             android:layout_below="@+id/speciality"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
-
 
 
     </LinearLayout>

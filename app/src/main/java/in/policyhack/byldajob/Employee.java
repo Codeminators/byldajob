@@ -76,19 +76,19 @@ public class Employee {
         this.highestEducation = highestEducation;
     }
 
-    public long getMobileNumber() {
+    public String getMobileNumber() {
         return mobileNumber;
     }
 
-    public void setMobileNumber(long mobileNumber) {
+    public void setMobileNumber(String mobileNumber) {
         this.mobileNumber = mobileNumber;
     }
 
-    public long getAdhaarNumber() {
+    public String getAdhaarNumber() {
         return adhaarNumber;
     }
 
-    public void setAdhaarNumber(long adhaarNumber) {
+    public void setAdhaarNumber(String adhaarNumber) {
         this.adhaarNumber = adhaarNumber;
     }
 
@@ -143,8 +143,8 @@ public class Employee {
     String state;
     String district;
     String policeVerification;
-    long adhaarNumber;
-    long mobileNumber;
+    String adhaarNumber;
+    String mobileNumber;
     String highestEducation;
     int workEx;
     int previousSalary;
