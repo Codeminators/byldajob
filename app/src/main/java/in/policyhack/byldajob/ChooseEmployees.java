@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,7 +26,9 @@ public class ChooseEmployees extends ActionBarActivity {
 
     private ArrayAdapter arrayAdapter;
     private int i;
+    Button submit;
     ProgressBar p;
+    ArrayList<Employee> selectedEmployee;
 
 
     SwipeFlingAdapterView flingContainer;
@@ -36,7 +39,7 @@ public class ChooseEmployees extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_employees);
         flingContainer = (SwipeFlingAdapterView) findViewById(R.id.frame);
-
+        submit = (Button)findViewById(R.id.submit);
         Intent intent = getIntent();
         intent.getBooleanExtra("relocate", false);
         i = Integer.valueOf(intent.getStringExtra("candidates"));
@@ -59,18 +62,24 @@ public class ChooseEmployees extends ActionBarActivity {
                 //Do something on the left!
                 //You also have access to the original object.
                 //If you want to use it just cast it (String) dataObject
-                makeToast(ChooseEmployees.this, "Left!");
+                makeToast(ChooseEmployees.this, "Not Selected!");
+
             }
 
             @Override
             public void onRightCardExit(Object dataObject) {
-                makeToast(ChooseEmployees.this, "Right!");
+                if(Employee.chosenEmployee.size() < i) {
+                    Employee.chosenEmployee.add(SpecialityFragment.employeeList.get(0));
+                    makeToast(ChooseEmployees.this, "Selected!");
+                } else {
+                    makeToast(ChooseEmployees.this, "Not Selected!");
+                }
             }
 
             @Override
             public void onAdapterAboutToEmpty(int itemsInAdapter) {
                 // Ask for more data here
-                //employeeList.add("XML ".concat(String.valueOf(i)));
+                SpecialityFragment.employeeList.add(SpecialityFragment.employeeList.get(0));
                 arrayAdapter.notifyDataSetChanged();
                 Log.d("LIST", "notified");
                 i++;
@@ -90,6 +99,13 @@ public class ChooseEmployees extends ActionBarActivity {
             @Override
             public void onItemClicked(int itemPosition, Object dataObject) {
                 makeToast(ChooseEmployees.this, "Clicked!");
+            }
+        });
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), EmployeeListActivity.class);
+                startActivity(i);
             }
         });
     }

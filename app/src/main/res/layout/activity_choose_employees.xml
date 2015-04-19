@@ -6,7 +6,7 @@
 
     <com.lorentzos.flingswipe.SwipeFlingAdapterView
         android:id="@+id/frame"
-        android:background="#ffeee9e2"
+        android:background="#0097A7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:rotation_degrees="15.5"
@@ -20,8 +20,8 @@
     <include layout="@layout/buttons"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerInParent="true"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="20dp"
         />
 
 </merge>
