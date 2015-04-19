@@ -7,20 +7,17 @@ import java.util.ArrayList;
  */
 public class Employee {
     String name;
-    char gender;
     String dob;
-    String motherTongue;
     String state;
     String district;
     String policeVerification;
-    Double adhaarNumber;
-    Double mobileNumber;
+    long adhaarNumber;
+    long mobileNumber;
     String highestEducation;
     int workEx;
     int previousSalary;
     String sector;
     String speciality;
-    String certificateAvailable;
     int marks;
     int retention;
     int lastEmployedAt;
