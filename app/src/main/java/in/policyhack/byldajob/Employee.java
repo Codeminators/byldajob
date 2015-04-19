@@ -7,7 +7,6 @@ import java.util.ArrayList;
  */
 public class Employee {
     String name;
-    char gender;
     String dob;
     String motherTongue;
 
@@ -33,14 +32,6 @@ public class Employee {
 
     public void setMarks(int marks) {
         this.marks = marks;
-    }
-
-    public String getCertificateAvailable() {
-        return certificateAvailable;
-    }
-
-    public void setCertificateAvailable(String certificateAvailable) {
-        this.certificateAvailable = certificateAvailable;
     }
 
     public String getSpeciality() {
@@ -83,19 +74,19 @@ public class Employee {
         this.highestEducation = highestEducation;
     }
 
-    public Double getMobileNumber() {
+    public long getMobileNumber() {
         return mobileNumber;
     }
 
-    public void setMobileNumber(Double mobileNumber) {
+    public void setMobileNumber(long mobileNumber) {
         this.mobileNumber = mobileNumber;
     }
 
-    public Double getAdhaarNumber() {
+    public long getAdhaarNumber() {
         return adhaarNumber;
     }
 
-    public void setAdhaarNumber(Double adhaarNumber) {
+    public void setAdhaarNumber(long adhaarNumber) {
         this.adhaarNumber = adhaarNumber;
     }
 
@@ -139,14 +130,6 @@ public class Employee {
         this.dob = dob;
     }
 
-    public char getGender() {
-        return gender;
-    }
-
-    public void setGender(char gender) {
-        this.gender = gender;
-    }
-
     public String getName() {
         return name;
     }
@@ -158,14 +141,13 @@ public class Employee {
     String state;
     String district;
     String policeVerification;
-    Double adhaarNumber;
-    Double mobileNumber;
+    long adhaarNumber;
+    long mobileNumber;
     String highestEducation;
     int workEx;
     int previousSalary;
     String sector;
     String speciality;
-    String certificateAvailable;
     int marks;
     int retention;
     int lastEmployedAt;

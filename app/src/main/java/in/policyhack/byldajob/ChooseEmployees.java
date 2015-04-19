@@ -48,20 +48,20 @@ public class ChooseEmployees extends ActionBarActivity {
                     for(int i=0;i<jsonArray.length();i++){
                         JSONObject jsonObject = (JSONObject) jsonArray.get(i);
                         Employee employee = new Employee();
-                        employee.setName(jsonObject.getString(""));
-                        employee.setState(jsonObject.getString(""));
-                        employee.setDistrict(jsonObject.getString(""));
-                        employee.setPoliceVerification(jsonObject.getString(""));
-                        employee.setAdhaarNumber(jsonObject.getString(""));
-                        employee.setMobileNumber(jsonObject.getString(""););
-                        employee.setHighestEducation(jsonObject.getString(""););
-                        employee.setSector(jsonObject.getString(""););
-                        employee.setSpeciality(jsonObject.getString(""););
-                        employee.setMarks(jsonObject.getString(""););
-                        employee.setRetention(jsonObject.getString(""););
-                        employee.setLastEmployedAt(jsonObject.getString(""););
-                        employee.setWorkEx(jsonObject.getString(""););
-                        employee.setPreviousSalary(jsonObject.getString(""););
+                        employee.setName(jsonObject.getString("Name"));
+                        employee.setState(jsonObject.getString("State"));
+                        employee.setDistrict(jsonObject.getString("District"));
+                        employee.setPoliceVerification(jsonObject.getString("PoliceVerification"));
+                        employee.setAdhaarNumber(jsonObject.getLong("AadhaarNumber"));
+                        employee.setMobileNumber(jsonObject.getLong("mobile"));
+                        employee.setHighestEducation(jsonObject.getString("HighestEducation"));
+                        employee.setSector(jsonObject.getString("Sectoroftraining"));
+                        employee.setSpeciality(jsonObject.getString("Courseoftraining"));
+                        employee.setMarks(jsonObject.getInt("MarksReceived"));
+                        employee.setRetention(jsonObject.getInt(""));
+                        employee.setLastEmployedAt(jsonObject.getInt(""));
+                        employee.setWorkEx(jsonObject.getInt("PreviousWorkExperience"));
+                        employee.setPreviousSalary(jsonObject.getInt("Previousmonthlysalarydrawn"));
                         employeeList.add(i,employee);
                     }
                 } catch (JSONException e) {
