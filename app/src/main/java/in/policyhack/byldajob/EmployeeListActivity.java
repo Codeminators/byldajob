@@ -2,6 +2,7 @@ package in.policyhack.byldajob;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.telephony.SmsManager;
 import android.util.Log;
@@ -20,6 +21,7 @@ public class EmployeeListActivity extends Activity{
     private ListView listView;
     private Adapter adapter;
     private Button sendSms;
+    private int i;
 
 
     @Override
@@ -46,6 +48,11 @@ public class EmployeeListActivity extends Activity{
                 sendSMSMessage("");
             }
         });
+        Intent intent = getIntent();
+        i = intent.getIntExtra("candidates",Employee.chosenEmployee.size());
+        if(i>Employee.chosenEmployee.size()){
+            i = Employee.chosenEmployee.size();
+        }
 
     }
 
@@ -63,7 +70,7 @@ public class EmployeeListActivity extends Activity{
 
         @Override
         public int getCount() {
-            return Employee.chosenEmployee.size();
+            return i;
         }
 
         @Override

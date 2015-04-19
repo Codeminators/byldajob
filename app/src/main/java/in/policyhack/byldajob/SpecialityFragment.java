@@ -14,6 +14,10 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 public class SpecialityFragment extends android.support.v4.app.Fragment {
@@ -27,6 +31,8 @@ public class SpecialityFragment extends android.support.v4.app.Fragment {
     private ArrayList<String> specialities;
     private ListView listView;
     private ArrayAdapter<String> listAdapter;
+
+    public static ArrayList<Employee> employeeList = new ArrayList<Employee>();
 
     // TODO: Rename and change types and number of parameters
     public static SpecialityFragment newInstance(String param1) {
@@ -106,20 +112,55 @@ public class SpecialityFragment extends android.support.v4.app.Fragment {
         final CheckBox relocate = (CheckBox) rootView.findViewById(R.id.checkbox);
         final EditText editText = (EditText) rootView.findViewById(R.id.proposed_salary);
         final EditText location = (EditText) rootView.findViewById(R.id.location);
+        final EditText candidates = (EditText) rootView.findViewById(R.id.candidates);
         listAdapter = new ArrayAdapter<>(getActivity(), R.layout.row_listview, specialities);
         listView.setAdapter(listAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-                SharedPreferences.Editor editor = preferences.edit();
-                editor.putString("location",location.getText().toString());
-                editor.apply();
-                Intent intent = new Intent(getActivity(), ChooseEmployees.class);
-                intent.putExtra("relocate", relocate.isChecked());
-                intent.putExtra("proposed_salary",editText.getText().toString());
-                intent.putExtra("specialization",specialities.get(i));
-                startActivity(intent);
+                new QueryTask(){
+
+                    @Override
+                    protected void onPostExecute(String s) {
+                        try {
+                            JSONArray jsonArray = new JSONArray(s);
+
+                            for(int i=0;i<jsonArray.length();i++){
+                                JSONObject jsonObject = (JSONObject) jsonArray.get(i);
+                                Employee employee = new Employee();
+                                employee.setName(jsonObject.getString("Name"));
+                                employee.setState(jsonObject.getString("State"));
+                                employee.setDistrict(jsonObject.getString("District"));
+                                employee.setPoliceVerification(jsonObject.getString("PoliceVerification"));
+                                employee.setAdhaarNumber(jsonObject.getString("AadhaarNumber"));
+                                employee.setMobileNumber(jsonObject.getString("mobile"));
+                                employee.setHighestEducation(jsonObject.getString("HighestEducation"));
+                                employee.setSector(jsonObject.getString("Sectoroftraining"));
+                                employee.setSpeciality(jsonObject.getString("Courseoftraining"));
+                                employee.setMarks(jsonObject.getInt("MarksReceived"));
+                                employee.setRetention(jsonObject.getInt("retention"));
+                                employee.setLastEmployedAt(jsonObject.getInt("lastemployed"));
+                                employee.setWorkEx(jsonObject.getInt("PreviousWorkExperience"));
+                                employee.setPreviousSalary(jsonObject.getInt("Previousmonthlysalarydrawn"));
+                                employeeList.add(i,employee);
+                                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+                                SharedPreferences.Editor editor = preferences.edit();
+                                editor.putString("location",location.getText().toString());
+                                editor.apply();
+                                Intent intent = new Intent(getActivity(), ChooseEmployees.class);
+                                intent.putExtra("relocate", relocate.isChecked());
+                                intent.putExtra("candidates",candidates.getText().toString());
+                                startActivity(intent);
+
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                }.execute("SELECT * FROM tbl WHERE Courseoftraining = \""+specialities.get(i)+"\" AND Previousmonthlysalarydrawn >= \""+ editText.getText().toString()+"\"");
+
             }
         });
         return rootView;

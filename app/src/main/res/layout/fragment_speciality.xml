@@ -1,64 +1,20 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" tools:context="in.policyhack.byldajob.SpecialityFragment">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:layout_height="match_parent" tools:context="in.policyhack.byldajob.SpecialityFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_gravity="center"
-        android:orientation="vertical">
+    <LinearLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_gravity="center" android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/proposed_salary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="Enter proposed salary"
-            android:imeOptions="actionNext"
-            android:digits="0123456789"
-            android:inputType="phone"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            />
+        <EditText android:id="@+id/proposed_salary" android:layout_width="wrap_content" android:layout_height="wrap_content" android:hint="Enter proposed salary" android:imeOptions="actionNext" android:digits="0123456789" android:inputType="phone" android:layout_gravity="center" android:layout_marginTop="20dp" />
 
-        <EditText
-            android:id="@+id/location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="Enter location"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:imeOptions="actionDone"
-            />
+        <EditText android:id="@+id/location" android:layout_width="wrap_content" android:layout_height="wrap_content" android:hint="Enter location" android:layout_gravity="center" android:layout_marginTop="20dp" android:imeOptions="actionNext" />
 
-        <CheckBox
-            android:id="@+id/checkbox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:hint="Will you be willing to pay for relocation?"/>
+        <EditText android:id="@+id/candidates" android:layout_width="wrap_content" android:layout_height="wrap_content" android:hint="Enter Number of Candidates" android:imeOptions="actionDone" android:digits="0123456789" android:inputType="phone" android:layout_gravity="center" android:layout_marginTop="20dp" />
+        <CheckBox android:id="@+id/checkbox" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center" android:layout_marginTop="20dp" android:hint="Will you be willing to pay for relocation?"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Select a Speciality:"
-            android:layout_marginTop="20dp"
-            android:id="@+id/speciality"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:text="Select a Speciality:" android:layout_marginTop="20dp" android:id="@+id/speciality" android:layout_alignParentTop="true" android:layout_alignParentLeft="true" android:layout_alignParentStart="true" />
 
-        <ListView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/listView"
-            android:layout_below="@+id/speciality"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+        <ListView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/listView" android:layout_below="@+id/speciality" android:layout_alignParentLeft="true" android:layout_alignParentStart="true" />
 
 
     </LinearLayout>
-</FrameLayout>
+</FrameLayout> 
