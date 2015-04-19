@@ -33,7 +33,7 @@ public class ChooseEmployees extends ActionBarActivity {
     ProgressBar p;
 
 
-   SwipeFlingAdapterView flingContainer;
+    SwipeFlingAdapterView flingContainer;
 
 
     @Override
@@ -78,58 +78,58 @@ public class ChooseEmployees extends ActionBarActivity {
         }
 
 
-                    arrayAdapter = new MyAdapter(getApplicationContext(),employeeList);
-                    flingContainer.setAdapter(arrayAdapter);
-                    Log.d("sdgf","" + flingContainer.getAdapter());
-                    Log.d("Raghav", "" + employeeList.size() +""+arrayAdapter.getCount());
-                    flingContainer.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
-                        @Override
-                        public void removeFirstObjectInAdapter() {
-                            // this is the simplest way to delete an object from the Adapter (/AdapterView)
-                            Log.d("LIST", "removed object!");
-                            employeeList.remove(0);
-                            arrayAdapter.notifyDataSetChanged();
-                        }
-
-                        @Override
-                        public void onLeftCardExit(Object dataObject) {
-                            //Do something on the left!
-                            //You also have access to the original object.
-                            //If you want to use it just cast it (String) dataObject
-                            makeToast(ChooseEmployees.this, "Left!");
-                        }
-
-                        @Override
-                        public void onRightCardExit(Object dataObject) {
-                            makeToast(ChooseEmployees.this, "Right!");
-                        }
-
-                        @Override
-                        public void onAdapterAboutToEmpty(int itemsInAdapter) {
-                            // Ask for more data here
-                            //employeeList.add("XML ".concat(String.valueOf(i)));
-                            arrayAdapter.notifyDataSetChanged();
-                            Log.d("LIST", "notified");
-                            i++;
-                        }
-
-                        @Override
-                        public void onScroll(float scrollProgressPercent) {
-                            View view = flingContainer.getSelectedView();
-                            view.findViewById(R.id.item_swipe_right_indicator).setAlpha(scrollProgressPercent < 0 ? -scrollProgressPercent : 0);
-                            view.findViewById(R.id.item_swipe_left_indicator).setAlpha(scrollProgressPercent > 0 ? scrollProgressPercent : 0);
-                        }
-                    });
-
-
-                    // Optionally add an OnItemClickListener
-                    flingContainer.setOnItemClickListener(new SwipeFlingAdapterView.OnItemClickListener() {
-                        @Override
-                        public void onItemClicked(int itemPosition, Object dataObject) {
-                            makeToast(ChooseEmployees.this, "Clicked!");
-                        }
-                    });
+        arrayAdapter = new MyAdapter(getApplicationContext(),employeeList);
+        flingContainer.setAdapter(arrayAdapter);
+        Log.d("sdgf","" + flingContainer.getAdapter());
+        Log.d("Raghav", "" + employeeList.size() +""+arrayAdapter.getCount());
+        flingContainer.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
+            @Override
+            public void removeFirstObjectInAdapter() {
+                // this is the simplest way to delete an object from the Adapter (/AdapterView)
+                Log.d("LIST", "removed object!");
+                employeeList.remove(0);
+                arrayAdapter.notifyDataSetChanged();
             }
+
+            @Override
+            public void onLeftCardExit(Object dataObject) {
+                //Do something on the left!
+                //You also have access to the original object.
+                //If you want to use it just cast it (String) dataObject
+                makeToast(ChooseEmployees.this, "Left!");
+            }
+
+            @Override
+            public void onRightCardExit(Object dataObject) {
+                makeToast(ChooseEmployees.this, "Right!");
+            }
+
+            @Override
+            public void onAdapterAboutToEmpty(int itemsInAdapter) {
+                // Ask for more data here
+                //employeeList.add("XML ".concat(String.valueOf(i)));
+                arrayAdapter.notifyDataSetChanged();
+                Log.d("LIST", "notified");
+                i++;
+            }
+
+            @Override
+            public void onScroll(float scrollProgressPercent) {
+                View view = flingContainer.getSelectedView();
+                view.findViewById(R.id.item_swipe_right_indicator).setAlpha(scrollProgressPercent < 0 ? -scrollProgressPercent : 0);
+                view.findViewById(R.id.item_swipe_left_indicator).setAlpha(scrollProgressPercent > 0 ? scrollProgressPercent : 0);
+            }
+        });
+
+
+        // Optionally add an OnItemClickListener
+        flingContainer.setOnItemClickListener(new SwipeFlingAdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClicked(int itemPosition, Object dataObject) {
+                makeToast(ChooseEmployees.this, "Clicked!");
+            }
+        });
+    }
 
 
     static void makeToast(Context ctx, String s){
@@ -194,10 +194,10 @@ public class ChooseEmployees extends ActionBarActivity {
             if (convertView == null) {
                 convertView = LayoutInflater.from(getContext()).inflate(R.layout.item, parent, false);
             }
-                TextView name = (TextView) convertView.findViewById(R.id.name_employee);
-                TextView number = (TextView) convertView.findViewById(R.id.mobile_number);
-                TextView aadhaar = (TextView) convertView.findViewById(R.id.aadhaar_number);
-                TextView district = (TextView) convertView.findViewById(R.id.district_employee);
+            TextView name = (TextView) convertView.findViewById(R.id.name_employee);
+            TextView number = (TextView) convertView.findViewById(R.id.mobile_number);
+            TextView aadhaar = (TextView) convertView.findViewById(R.id.aadhaar_number);
+            TextView district = (TextView) convertView.findViewById(R.id.district_employee);
             TextView state = (TextView) convertView.findViewById(R.id.state_employee);
             TextView policeVerification = (TextView) convertView.findViewById(R.id.police_verification);
             TextView highestEducation = (TextView) convertView.findViewById(R.id.highest_education);
