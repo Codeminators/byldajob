@@ -45,7 +45,9 @@ public class EmployeeListActivity extends Activity{
         sendSms.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sendSMSMessage("");
+                for(int i = 0; i < Employee.chosenEmployee.size(); i++) {
+                    sendSMSMessage(Employee.chosenEmployee.get(i).getMobileNumber()+"");
+                }
             }
         });
         Intent intent = getIntent();
@@ -106,7 +108,7 @@ public class EmployeeListActivity extends Activity{
     }
 
     public void sendSMSMessage(String phoneNo) {
-        String message = "Hey";
+        String message = "Congratulations, we have a job for you. Should you choose to accept it, send EMP Y";
 
         try {
             SmsManager smsManager = SmsManager.getDefault();
