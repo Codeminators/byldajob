@@ -2,10 +2,9 @@ package in.policyhack.byldajob;
 
 import android.app.Activity;
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.telephony.SmsManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,68 +14,39 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.zip.Inflater;
 
-
-public class EmployeeListFragment extends android.support.v4.app.Fragment {
+public class EmployeeListActivity extends Activity{
 
     private ListView listView;
     private Adapter adapter;
     private Button sendSms;
 
 
-    public static EmployeeListFragment newInstance() {
-        EmployeeListFragment fragment = new EmployeeListFragment();
-        return fragment;
-    }
-
-    public EmployeeListFragment() {
-        // Required empty public constructor
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-        }
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_employee_list, container, false);
+       setContentView(R.layout.fragment_employee_list);
         for(int i = 0; i < 3; i++){
             Employee employee = new Employee();
             employee.name = "Name";
             employee.state = "State";
             employee.district = "District";
-            employee.adhaarNumber = 12.5;
-            employee.mobileNumber = 10.0;
+            employee.adhaarNumber = 12;
+            employee.mobileNumber = 10;
             Employee.chosenEmployee.add(employee);
         }
-        listView = (ListView) v.findViewById(R.id.listView);
-        sendSms = (Button) v.findViewById(R.id.smsButton);
-        adapter = new Adapter(getActivity().getApplicationContext());
+        listView = (ListView) findViewById(R.id.listView);
+        sendSms = (Button) findViewById(R.id.smsButton);
+        adapter = new Adapter(getApplicationContext());
         listView.setAdapter(adapter);
+        Log.d("Array", Employee.chosenEmployee.toString());
         sendSms.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 sendSMSMessage("");
             }
         });
-        return v;
-    }
 
-
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
     }
 
     public class Adapter extends BaseAdapter{
@@ -110,7 +80,10 @@ public class EmployeeListFragment extends android.support.v4.app.Fragment {
         public View getView(int position, View convertView, ViewGroup parent) {
             LayoutInflater inflater = (LayoutInflater) c
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            View v = inflater.inflate(R.layout.list_view_item, parent, false);
+            View v = convertView;
+            if(convertView ==null) {
+              v = inflater.inflate(R.layout.list_view_item, parent, false);
+            }
             name = (TextView) v.findViewById(R.id.name);
             number = (TextView) v.findViewById(R.id.MobileNumber);
             aadhar = (TextView) v.findViewById(R.id.AadharNumber);
@@ -131,10 +104,10 @@ public class EmployeeListFragment extends android.support.v4.app.Fragment {
         try {
             SmsManager smsManager = SmsManager.getDefault();
             smsManager.sendTextMessage(phoneNo, null, message, null, null);
-            Toast.makeText(getActivity().getApplicationContext(), "SMS sent.",
+            Toast.makeText(getApplicationContext(), "SMS sent.",
                     Toast.LENGTH_LONG).show();
         } catch (Exception e) {
-            Toast.makeText(getActivity().getApplicationContext(),
+            Toast.makeText(getApplicationContext(),
                     "SMS faild, please try again.",
                     Toast.LENGTH_LONG).show();
             e.printStackTrace();

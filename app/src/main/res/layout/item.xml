@@ -18,7 +18,9 @@
             android:id="@+id/name"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:textColor="@color/primary_dark_material_dark"
+            />
 
         <TextView
             android:layout_width="wrap_content"
@@ -29,11 +31,13 @@
             android:id="@+id/name_employee"
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/name"
+            android:textColor="@color/primary_dark_material_dark"
             android:layout_toEndOf="@+id/name" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/primary_dark_material_dark"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="District:"
             android:id="@+id/textView"
@@ -44,6 +48,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/primary_dark_material_dark"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="name of district"
             android:id="@+id/district_employee"
@@ -54,6 +59,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/primary_dark_material_dark"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="State:"
             android:id="@+id/textView2"
@@ -64,6 +70,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/primary_dark_material_dark"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="name of State"
             android:id="@+id/state_employee"
@@ -74,6 +81,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/primary_dark_material_dark"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Police Verification:"
             android:id="@+id/textView3"
@@ -84,6 +92,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/primary_dark_material_dark"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="yes"
             android:layout_marginLeft="20dp"
@@ -98,6 +107,7 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Aadhaar Number:"
             android:id="@+id/textView4"
+            android:textColor="@color/primary_dark_material_dark"
             android:layout_below="@+id/police_verification"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
@@ -105,6 +115,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/primary_dark_material_dark"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text=""
             android:layout_marginLeft="20dp"
@@ -115,6 +126,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/primary_dark_material_dark"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Mobile Number:"
             android:id="@+id/textView5"
@@ -124,6 +136,7 @@
 
         <TextView
             android:layout_width="wrap_content"
+            android:textColor="@color/primary_dark_material_dark"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Number"
@@ -136,6 +149,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/primary_dark_material_dark"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Highest Education:"
             android:id="@+id/textView6"
@@ -146,6 +160,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/primary_dark_material_dark"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="12th pass"
             android:id="@+id/highest_education"
@@ -157,6 +172,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/primary_dark_material_dark"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Work Experience"
             android:id="@+id/textView7"
@@ -170,6 +186,7 @@
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="one year"
             android:layout_marginLeft="20dp"
+            android:textColor="@color/primary_dark_material_dark"
             android:id="@+id/work_ex"
             android:layout_below="@+id/highest_education"
             android:layout_toRightOf="@+id/textView7"
@@ -179,6 +196,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/primary_dark_material_dark"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Expected Salary:"
             android:id="@+id/textView8"
@@ -190,6 +208,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
+            android:textColor="@color/primary_dark_material_dark"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="10000"
             android:id="@+id/expected_salary"
@@ -204,6 +223,7 @@
             android:id="@+id/textView9"
             android:layout_below="@+id/expected_salary"
             android:layout_alignParentLeft="true"
+            android:textColor="@color/primary_dark_material_dark"
             android:layout_alignParentStart="true" />
 
         <TextView
@@ -211,11 +231,28 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="100"
+            android:textColor="@color/primary_dark_material_dark"
             android:id="@+id/marks"
             android:layout_marginLeft="20dp"
             android:layout_below="@+id/expected_salary"
             android:layout_toRightOf="@+id/textView9"
             android:layout_toEndOf="@+id/textView9" />
+        <View
+            android:id="@+id/item_swipe_left_indicator"
+            android:alpha="0"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="10dp"
+            android:background="#A5F" />
+
+        <View
+            android:id="@+id/item_swipe_right_indicator"
+            android:alpha="0"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_margin="10dp"
+            android:layout_gravity="right"
+            android:background="#5AF" />
 
 
     </RelativeLayout>

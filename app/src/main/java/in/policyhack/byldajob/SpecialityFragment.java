@@ -74,7 +74,7 @@ public class SpecialityFragment extends android.support.v4.app.Fragment {
             specialities.add("AUR101-Basic Automotive Servicing (4 Wheelers)");
             specialities.add("AUR703-Driver cum Mechanic");
         }
-        else if (category.equals("Bank & Accounting")) {
+        else if (category.equals("Banking & Accounting")) {
             specialities.add("BAN101-Accounting");
             specialities.add("BAN104-Mutual Fund Associate");
         }
@@ -86,7 +86,7 @@ public class SpecialityFragment extends android.support.v4.app.Fragment {
             specialities.add("GAR 516-Tailor (Basic Sewing Operator)");
             specialities.add("GAR515-Industrial Sewing Machine Operator");
         }
-        else if (category.equals("Information And Communication Technology")) {
+        else if (category.equals("Information and Communication Technology")) {
             specialities.add("ICT113-BPO Non Voice business training");
             specialities.add("ICT703-Computer Hardware Assistant");
             specialities.add("ICT701-Accounts Assistant using Tally");
@@ -115,7 +115,7 @@ public class SpecialityFragment extends android.support.v4.app.Fragment {
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.putString("location",location.getText().toString());
                 editor.apply();
-                Intent intent = new Intent();
+                Intent intent = new Intent(getActivity(), ChooseEmployees.class);
                 intent.putExtra("relocate", relocate.isChecked());
                 intent.putExtra("proposed_salary",editText.getText().toString());
                 intent.putExtra("specialization",specialities.get(i));
