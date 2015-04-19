@@ -25,16 +25,16 @@ public class EmployeeListActivity extends Activity{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       setContentView(R.layout.fragment_employee_list);
-        for(int i = 0; i < 3; i++){
-            Employee employee = new Employee();
-            employee.name = "Name";
-            employee.state = "State";
-            employee.district = "District";
-            employee.adhaarNumber = 12;
-            employee.mobileNumber = 10;
-            Employee.chosenEmployee.add(employee);
-        }
+        setContentView(R.layout.fragment_employee_list);
+//        for(int i = 0; i < 3; i++){
+//            Employee employee = new Employee();
+//            employee.name = "Name";
+//            employee.state = "State";
+//            employee.district = "District";
+//            employee.adhaarNumber = 12;
+//            employee.mobileNumber = 10;
+//            Employee.chosenEmployee.add(employee);
+//        }
         listView = (ListView) findViewById(R.id.listView);
         sendSms = (Button) findViewById(R.id.smsButton);
         adapter = new Adapter(getApplicationContext());
@@ -43,7 +43,9 @@ public class EmployeeListActivity extends Activity{
         sendSms.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sendSMSMessage("");
+                for(int i = 0; i < Employee.chosenEmployee.size(); i++) {
+                    sendSMSMessage(Employee.chosenEmployee.get(i).getMobileNumber()+"");
+                }
             }
         });
 
@@ -99,7 +101,7 @@ public class EmployeeListActivity extends Activity{
     }
 
     public void sendSMSMessage(String phoneNo) {
-        String message = "Hey";
+        String message = "Congratulations, we have a job for you. Should you choose to accept it, send EMP Y";
 
         try {
             SmsManager smsManager = SmsManager.getDefault();
