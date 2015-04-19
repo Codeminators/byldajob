@@ -10,7 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.widget.ArrayAdapter;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,7 +28,7 @@ import java.util.HashMap;
 public class ChooseEmployees extends ActionBarActivity {
 
     private ArrayList<Employee> employeeList;
-    private Adapter arrayAdapter;
+    private ArrayAdapter arrayAdapter;
     private int i;
     ProgressBar p;
 
@@ -86,7 +86,7 @@ public class ChooseEmployees extends ActionBarActivity {
                         employeeList.add(i,employee);
 
                     }
-                    arrayAdapter = new Adapter(getApplication(), employeeList);
+                    arrayAdapter = new MyAdapter(getApplicationContext(),employeeList);
                     flingContainer.setAdapter(arrayAdapter);
                     Log.d("Raghav", "" + employeeList.size() +""+arrayAdapter.getCount());
 
@@ -189,7 +189,7 @@ public class ChooseEmployees extends ActionBarActivity {
     }
 
 
-    public class Adapter extends BaseAdapter {
+    public class MyAdapter extends ArrayAdapter<Employee> {
         private TextView name;
         private TextView number;
         private TextView state;
@@ -204,22 +204,9 @@ public class ChooseEmployees extends ActionBarActivity {
         private ArrayList<Employee> employeeList1;
         Context c;
 
-
-        public Adapter(Context context, ArrayList<Employee> employeeList){
-            this.employeeList1 = employeeList;
-            Log.d("Roalts", "" + employeeList.size());
-            this.c = context;
-        }
-
-        @Override
-        public int getCount() {
-            Log.d("Roalts22", "" + employeeList.size());
-            return employeeList.size();
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return employeeList.get(position);
+        public MyAdapter(Context context, ArrayList<Employee> objects) {
+            super(context,0,objects);
+            employeeList1 = objects;
         }
 
         @Override
@@ -229,55 +216,35 @@ public class ChooseEmployees extends ActionBarActivity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            ViewHolder viewHolder;
-            LayoutInflater inflater = (LayoutInflater) c
-                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            View v = convertView;
-            if(convertView == null) {
-                v = inflater.inflate(R.layout.item, parent, false);
-                viewHolder = new ViewHolder();
-                viewHolder.name = (TextView) v.findViewById(R.id.name_employee);
-                viewHolder.number = (TextView) v.findViewById(R.id.mobile_number);
-                viewHolder.aadhaar = (TextView) v.findViewById(R.id.aadhaar_number);
-                viewHolder.district = (TextView) v.findViewById(R.id.district_employee);
-                viewHolder.state = (TextView) v.findViewById(R.id.state_employee);
-                viewHolder.policeVerification = (TextView) v.findViewById(R.id.police_verification);
-                viewHolder.highestEducation = (TextView) v.findViewById(R.id.highest_education);
-                viewHolder.workExperience = (TextView) v.findViewById(R.id.work_ex);
-                viewHolder.marksReceived = (TextView) v.findViewById(R.id.marks);
-                viewHolder.expectedSalary = (TextView) v.findViewById(R.id.expected_salary);
-                v.setTag(viewHolder);
-            } else {
-                viewHolder = (ViewHolder) v.getTag();
+            Employee employee = getItem(position);
+            if (convertView == null) {
+                convertView = LayoutInflater.from(getContext()).inflate(R.layout.item, parent, false);
             }
+                TextView name = (TextView) convertView.findViewById(R.id.name_employee);
+                TextView number = (TextView) convertView.findViewById(R.id.mobile_number);
+                TextView aadhaar = (TextView) convertView.findViewById(R.id.aadhaar_number);
+                TextView district = (TextView) convertView.findViewById(R.id.district_employee);
+            TextView state = (TextView) convertView.findViewById(R.id.state_employee);
+            TextView policeVerification = (TextView) convertView.findViewById(R.id.police_verification);
+            TextView highestEducation = (TextView) convertView.findViewById(R.id.highest_education);
+            TextView workExperience = (TextView) convertView.findViewById(R.id.work_ex);
+            TextView marksReceived = (TextView) convertView.findViewById(R.id.marks);
+            TextView expectedSalary = (TextView) convertView.findViewById(R.id.expected_salary);
 
-            viewHolder.name.setText(employeeList1.get(position).getName());
+            name.setText(employeeList1.get(position).getName());
             Log.d("Roalts1", ""+employeeList1.get(position).getName());
-            viewHolder.number.setText(employeeList1.get(position).getMobileNumber()+ "");
-            viewHolder.state.setText(employeeList1.get(position).getState());
-            viewHolder.district.setText(employeeList1.get(position).getDistrict());
-            viewHolder.policeVerification.setText(employeeList1.get(position).getPoliceVerification() + "");
-            viewHolder.workExperience.setText(employeeList1.get(position).getWorkEx() + "");
-            viewHolder.expectedSalary.setText(employeeList1.get(position).getPreviousSalary() + "");
-            viewHolder.marksReceived.setText(employeeList1.get(position).getMarks() + "");
-            viewHolder.highestEducation.setText(employeeList1.get(position).getHighestEducation() + "");
-            viewHolder.aadhaar.setText(employeeList1.get(position).getAdhaarNumber() + "");
+            number.setText(employeeList1.get(position).getMobileNumber()+ "");
+            state.setText(employeeList1.get(position).getState());
+            district.setText(employeeList1.get(position).getDistrict());
+            policeVerification.setText(employeeList1.get(position).getPoliceVerification() + "");
+            workExperience.setText(employeeList1.get(position).getWorkEx() + "");
+            expectedSalary.setText(employeeList1.get(position).getPreviousSalary() + "");
+            marksReceived.setText(employeeList1.get(position).getMarks() + "");
+            highestEducation.setText(employeeList1.get(position).getHighestEducation() + "");
+            aadhaar.setText(employeeList1.get(position).getAdhaarNumber() + "");
 
-            return v;
+            return convertView;
         }
-
-    }
-    public static class ViewHolder {
-        private TextView name;
-        private TextView number;
-        private TextView state;
-        private TextView district;
-        private TextView aadhaar;
-        private TextView policeVerification;
-        private TextView highestEducation;
-        private TextView workExperience;
-        private TextView expectedSalary;
-        private TextView marksReceived;
 
     }
 }
